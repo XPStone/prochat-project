@@ -68,8 +68,6 @@ export async function POST(request: Request) {
 
     try {
         const apiKey = 'fastgpt-rstSKRN7or7i2wspEpzlzzndLz1KpcOtSUmSL0WmApm9JmMyc4wfbbfV'; // 你的 API 密钥
-        const controller = new AbortController();
-        const { signal } = controller;
 
         // 生成返回前端的response，向后端API发送请求
         const fetchResponse = await fetch(
@@ -101,7 +99,6 @@ export async function POST(request: Request) {
                     detail: false,
                     stream: true // 请求流式响应
                 }),
-               signal// 传递中止信号
             },
         );
 
@@ -124,3 +121,4 @@ export async function POST(request: Request) {
         return NextResponse.error();
     }
 }
+
